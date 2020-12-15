@@ -8,5 +8,3 @@ spring:
             - Path=/service1/**
           filters:
             - StripPrefix=1
-test:
-  hello: jack
