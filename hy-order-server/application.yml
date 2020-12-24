@@ -1,0 +1,12 @@
+spring:
+  redis:
+    common:
+      host: localhost
+      port: 6379
+      password: redispasswd
+      timeout: 30000
+    order:
+      host: localhost
+      port: 6379
+      password: redispasswd
+      timeout: 30000
