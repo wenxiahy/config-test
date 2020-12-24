@@ -1,10 +1,27 @@
 spring:
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            allowCredentials: true
+            maxAge: 86400
       routes:
-        - id: service1
-          uri: lb://service1
+        - id: hy-auth-server
+          uri: lb://hy-auth-server
           predicates:
-            - Path=/service1/**
+            - Path=/hy-auth-server/**
+          filters:
+            - StripPrefix=1
+        - id: hy-order-server
+          uri: lb://hy-order-server
+          predicates:
+            - Path=/hy-order-server/**
           filters:
             - StripPrefix=1
